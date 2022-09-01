@@ -93,3 +93,12 @@
 // }
 
 // console.log(rollDice());
+
+// let castle = {
+//     name: 'The Elf Castle',
+//     bedrooms: 3,
+//     isAvailable: true,
+//     feaures: ['high', 'beautiful', 'scary']
+// }
+
+// console.log(castle.bedrooms, castle.feaures[1]);

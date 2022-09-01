@@ -1,8 +1,16 @@
+let player = {
+    name: "Vini",
+    chips: 175
+};
+
 let cards = [];
 let sum = 0;
 let hasBlackJack = false;
 let isAlive = false;
 let message = "";
+
+let playerEl = document.getElementById('player-el');
+playerEl.textContent = `${player.name}: $${player.chips}`
 
 let messageEl = document.getElementById('message-el');
 // let sumEl = document.getElementById('sum-el');
@@ -31,12 +39,12 @@ function startGame() {
 
 function renderGame() {
     cardsEl.textContent = "Cards: "
-    for(let i = 0; i < cards.length; i++) {
+    for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
     }
 
     sumEl.textContent = `Sum: ${sum} `
-    if(sum <= 20) {
+    if (sum <= 20) {
         message = "Você quer tirar outra carta?"
     } else if (sum === 21) {
         message = "Parabéns, você fez um Blackjack!"
@@ -50,8 +58,10 @@ function renderGame() {
 }
 
 const newCard = () => {
-    let card = getRandomCard();
-    sum += card;
-    cards.push(card);
-    renderGame();
+    if (isAlive === true && hasBlackJack === false) {
+        let card = getRandomCard();
+        sum += card;
+        cards.push(card);
+        renderGame();
+    }
 }
